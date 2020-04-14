@@ -2,7 +2,7 @@ class Ball {
   constructor(Player, Bricks) {
     this.Pos = createVector(width / 2, height / 2);
     this.Radius = 10;
-    this.Speed = createVector(oneOf___(-7, 7, -4, 4), oneOf___(-6, 6, -3, 3));
+    this.Speed = createVector(oneOf(-7, 7, -4, 4), oneOf(-6, 6, -3, 3));
     this.Extras = {
       Color: color(255),
       Score: 0,
