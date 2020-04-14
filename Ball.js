@@ -2,7 +2,7 @@ class Ball {
   constructor(Player, Bricks) {
     this.Pos = createVector(width / 2, height / 2);
     this.Radius = 10;
-    this.Speed = createVector(oneOf(-7, 7, -4, 4), oneOf(-6, 6, -3, 3));
+    this.Speed = createVector(oneOf(-5, 5, 3, 3), oneOf(-5, 5, 3, 3));
     this.Extras = {
       Color: color(255),
       Score: 0,
@@ -23,10 +23,39 @@ class Ball {
   Win() {
     textSize(70);
     textFont("Random");
+    noStroke();
+    fill(255);
     text("YOU WIN!!", width / 2 - 185, height / 2);
     let ResetBtn = createButton("Reset");
+    ResetBtn.position(width / 2 - 50, height / 2 + 50);
+    ResetBtn.style("background-color", "rgb(255, 255, 255)");
+    ResetBtn.style("border-color", "rgb(255, 255, 255)");
+    ResetBtn.style("width", "100px");
+    ResetBtn.style("font-style", "italic");
+    ResetBtn.style("border-radius", "10px");
+    ResetBtn.mousePressed(() => {
+      location.reload();
+    });
   }
-  Die() {}
+  Die() {
+    this.Player.Extras.Color = color(255, 0, 0);
+    this.Extras.Color = color(255, 0, 0);
+    textSize(70);
+    textFont("Random");
+    noStroke();
+    fill(255, 0, 0);
+    text("YOU DIED!!", width / 2 - 185, height / 2);
+    let ResetBtn = createButton("Reset");
+    ResetBtn.position(width / 2 - 50, height / 2 + 50);
+    ResetBtn.style("background-color", "rgb(255, 0, 0)");
+    ResetBtn.style("border-color", "rgb(255, 0, 0)");
+    ResetBtn.style("width", "100px");
+    ResetBtn.style("font-style", "italic");
+    ResetBtn.style("border-radius", "10px");
+    ResetBtn.mousePressed(() => {
+      location.reload();
+    });
+  }
   collision() {
     //Regular collision
     if (this.Pos.x >= width - this.Radius || this.Pos.x <= this.Radius)
@@ -76,6 +105,5 @@ class Ball {
     this.update();
     this.collision();
     this.score();
-    this.Win();
   }
 }
