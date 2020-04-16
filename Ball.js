@@ -1,8 +1,23 @@
+let oneOf = (x, y) => {
+  return round(random(0, 2)) == 1? x : y
+}
+
+
+
+
+
+
+
+
+
+
+
+
 class Ball {
   constructor(Player, Bricks) {
     this.Pos = createVector(width / 2, height / 2);
     this.Radius = 10;
-    this.Speed = createVector(oneOf(-5, 5, 3, 3), oneOf(-5, 5, 3, 3));
+    this.Speed = createVector(oneOf(-5, 5), oneOf(-5, 5));
     this.Extras = {
       Color: color(255),
       Score: 0,
