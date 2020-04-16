@@ -1,17 +1,4 @@
-let oneOf = (x, y) => {
-  return round(random(0, 2)) == 1? x : y
-}
-
-
-
-
-
-
-
-
-
-
-
+import "./Utils.js"
 
 class Ball {
   constructor(Player, Bricks) {
