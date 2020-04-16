@@ -1,5 +1,3 @@
-import "./Utils.js"
-
 class Ball {
   constructor(Player, Bricks) {
     this.Pos = createVector(width / 2, height / 2);
